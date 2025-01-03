@@ -1,0 +1,9 @@
+Players=['Ronaldo', 'Messi', 'Neymar', 'Mbappe', 'Rodri']
+
+for person in Players:
+  print(person)
+
+number=0
+while number<110:
+  print(number)
+  number=number+10
