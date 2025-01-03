@@ -1,0 +1,40 @@
+# Importing the pandas library below
+
+import pandas as pd
+#Create a base class with the abstract method
+
+from abc import ABC, abstractmethod
+
+class FileLoader(ABC):
+  def load_file(self, filepath):
+    pass
+# Defining the classes CSV, Excel, and the Txt
+class CSVLoader(FileLoader):
+  def __init__(self, filepath): # Added __init__ method to accept filepath
+    self.filepath = filepath  # Store the filepath as an instance variable
+
+class ExcelLoader(FileLoader):
+  def __init__(self, filepath): # Added __init__ method to accept filepath
+    self.filepath = filepath  # Store the filepath as an instance variable
+  def load_file(self): # Removed filepath argument as it's already stored
+    return pd.read_csv(self.filepath, engine='python')
+
+class TxtLoader(FileLoader):
+  def __init__(self, filepath): # Added __init__ method to accept filepath
+    self.filepath = filepath  # Store the filepath as an instance variable
+  def load_file(self): # Removed filepath argument as it's already stored
+    return pd.read_csv(self.filepath, delimiter='\t')
+
+#This uses the method for loading the file.
+# Uses abstract method for loading the file
+csv_loader = CSVLoader("arya.csv")
+my_df=csv_loader.load_file("arya.csv")
+print(my_df)
+
+excel_loader = ExcelLoader(filepath="Automobile_data.csv")
+my_df=excel_loader.load_file()
+print(my_df)
+
+txt_loader = TxtLoader(filepath="Sigma.txt")
+my_df=txt_loader.load_file()
+print(my_df)
