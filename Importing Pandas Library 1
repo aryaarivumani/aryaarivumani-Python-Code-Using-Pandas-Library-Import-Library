@@ -1,0 +1,11 @@
+import pandas as pd
+
+data={'index':[0,1,2,3,4,6,7,8,9,10], 'company':['alfa-remero','alfa-remero','alfa-remero','audi','audi','volksawgen','volksawgen','volksawgen','volvo','volvo']}
+
+df=pd.DataFrame(data)
+print(df.head(5))
+print(df.tail(5))
+
+
+company_counts=df['company'].value_counts()
+print(company_counts)
