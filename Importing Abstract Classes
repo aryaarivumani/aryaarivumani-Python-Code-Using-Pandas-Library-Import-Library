@@ -1,0 +1,50 @@
+from abc import ABC, ABCMeta, abstractmethod
+
+class Employee(ABC):
+  def __init__(self,employee_id, name, age, salary):
+    self.name=name
+    self.age=age
+    self.salary=salary
+    self.__employee_id=employee_id
+
+  @abstractmethod
+  def _get_duties(self):
+   pass  # all child classes must implement this method.
+
+  def get_salary(self):
+    return self.salary
+
+  def get_employee_id(self):
+    return self.__employee_id
+
+class Professional(Employee):
+  def __init__(self, employee_id,name, age, salary):
+    super().__init__(employee_id,name, age, salary)
+
+  # overriding, implementation
+  def _get_duties(self):
+  # List professional employee duties
+    print("Professional duties are: Skilled, creativity, development")
+
+  def get_employee_id(self):
+    return super().get_employee_id()
+
+class Programmer(Professional):
+  def __init__(self, employee_id,name, age, salary):
+    super().__init__(employee_id,name, age, salary)
+
+  # overriding, implementation
+  def _get_duties(self):
+  # List professional employee duties
+    super()._get_duties()
+    print("Professional duties are: Coding, Testing, Support")
+
+# Object Programmer
+arivu = Programmer(1,"arivu",50,100)
+print(arivu._get_duties())
+print(arivu.get_employee_id())
+
+# Object Professional
+ram = Professional(2,"ram",100,200)
+print(ram._get_duties())
+print(ram.get_employee_id())
