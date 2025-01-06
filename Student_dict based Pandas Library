@@ -1,0 +1,20 @@
+import pandas as pd
+
+# Python dict object
+student_dict = {'Name': ['Joe', 'Nat', 'Jeb', 'Max', 'Sam', 'Sal'], 'Age': [20, 21, 19, 18, 20, 21], 'Marks': [85.10, 77.80, 99.00, 85.10, 88.80, 90.10]}
+print(student_dict)
+
+# Create DataFrame from dict
+student_df = pd.DataFrame(student_dict)
+print(student_df)
+
+# Sort by the 'Age' column in ascending order
+student_df1 = student_df.sort_values(by='Age')
+
+# Print the first 5 and last 5 rows
+print(student_df1)
+print(student_df.head())
+print(student_df.tail())
+
+# Prints the mean, mode, count
+student_df.describe()
