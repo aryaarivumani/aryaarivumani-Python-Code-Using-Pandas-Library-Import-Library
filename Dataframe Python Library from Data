@@ -1,0 +1,19 @@
+import pandas as pd
+
+# Create a DataFrame from a dictionary
+data = {'Name': ['John', 'Mary', 'Peter', 'Mike', 'Josh', 'Sam'], 'Age': [20, 25, 30, 40, 34, 43]}
+df = pd.DataFrame(data)
+
+# Print the DataFrame
+print(df)
+
+# Access a column
+print(df['Name'])
+
+# Add a new column
+df['City'] = ['New York', 'London', 'Tokyo', 'Paris', 'Bejing', 'Rome']
+
+# Printing the first two and last two rows of the data
+print(df)
+print(df.head(2)) 
+print(df.tail(2))
